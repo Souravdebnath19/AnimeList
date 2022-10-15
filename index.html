@@ -1,0 +1,1962 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link href="https://allfont.net/allfont.css?fonts=ninja-naruto" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link
+        href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6qtY7eooQBTfiSVjtrLrGQHaEj%26pid%3DApi&f=1"
+        rel="icon" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <title>My AnimeSite</title>
+</head>
+
+<style>
+    :root {
+        --col1: #222;
+        --col2: black;
+        --swiper-image-ratio: 34%;
+        /* ratio 16:9 = 56.25% */
+
+        --swiper-width: 50%;
+        --swiper-inactive-scale: .85;
+        /* makes the other slide smaller */
+
+        /* responsive settings */
+        --swiper-mobile-width: 90%;
+        --swiper-mobile-inactive-scale: 1;
+
+    }
+
+    h2.card-title {
+        color: var(--col2);
+    }
+
+    .to-top {
+        color: #fff;
+        position: fixed;
+        bottom: 16px;
+        right: 32px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        background: #1f1f1f;
+        text-decoration: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s;
+        z-index: 999;
+    }
+
+    .bottom {
+        color: #fff;
+        position: fixed;
+        top: 16px;
+        right: 32px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        background: #1f1f1f;
+        text-decoration: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s;
+        z-index: 10;
+    }
+
+    .to-top.active,
+    .bottom.active {
+        bottom: 32px;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    .to-top:hover,
+    .bottom:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+
+<style>
+    .dark-mode {
+        background-color: black;
+        color: #53BF9D;
+        --col1: #ffe15a;
+        --col2: grey;
+    }
+</style>
+
+<body>
+    <a href="#" class="to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <button class="bottom">
+        <i class="fa fa-arrow-down"></i>
+    </button>
+
+    <div class="loader">
+
+        <!-- Changed Navbar Content and Search box below the navbar -->
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between" id="navBackground"
+                style="background-color:#1746A2; !important">
+                <a class="navbar-brand brand1 heading" href="#" style="color:Black;">Sourav AnimeList</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="./index.html" style="color:Black;">Home</a>
+                        <div class="theme-btn nav-link">
+                            <button id="btn" class="btn btn-outline-dark btn-md" style=" border-radius: 30%;"
+                                onclick="darkMode()"><i id="themeIcon" class="bi bi-brightness-high "></i></button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </nav>
+            <div class="search">
+                <div class="icon" id="Find"></div>
+                <div class="input">
+                    <input type="text" placeholder="search" id="mysearch">
+                </div>
+
+                <span class="clear" onclick="document.getElementById('mysearch').value = ' '"></span>
+                <!-- Search Result DIV for search Suggestion  -->
+                <div class="search-results">
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+
+
+    <main class="Color">
+
+        <div class="carouselContainer">
+            <div class="swiper">
+
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="swiper-image">
+                            <div class="image">
+                                <img src="./assets/main_bg.jpeg" alt="..">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="swiper-image">
+                            <div class="image">
+                                <img src="./assets/bg2.jpeg" alt="..">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="swiper-image">
+                            <div class="image">
+                                <img src="./assets/407322.webp" alt="..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev" style="width: 53px;height : 53px; margin-left: 18px;"></div>
+                <div class="swiper-button-next" style="width: 53px;height : 53px;margin-right: 18px;"></div>
+            </div>
+        </div>
+
+
+
+        <p align="center">
+        <h1 style="color:#FAF7F0;">My Favourite Anime Characters</h1>
+        </p>
+        <hr width="70%">
+
+
+        <!-- Do not alter the code above this line unless you want to improve/ fix the website -->
+
+        <!-- Card section starts -->
+        <div class="container" id="cont">
+
+            <!--Sample Naruto card start-->
+            <div class="card mb-3 card-bg my-4" id="Naruto" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="./images/naruto.png" alt="Naruto" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Naruto Uzumaki</h2>
+                            <p class="card-text">Naruto Uzumaki is the main protagonist in the popular manga and anime
+                                series Naruto. He is a cheerful, hyperactive, strong-willed, and occasionally
+                                simple-minded young shinobi from the village of Konoha (or Leaf Village).</p>
+                            <p>Since Naruto has the Nine Tails Fox sealed inside him, he is able to use the Fox's
+                                chakra, which is much greater than the average human. Initially Naruto and the Fox hated
+                                each other, and would rarely grant Naruto his power
+                                unless they were going to die. Eventually, they become friends, and Naruto then refers
+                                to the fox by his name, Kurama. At this point, Naruto can use Kurama's chakra at will.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample card end-->
+
+            <div class="card mb-3 card-bg my-4" id="Luffy" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/3437a2c17ac6e710f946908182ea7100.jpg" alt="Monkey D. Luffy" height="390px"
+                            width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Monkey D. Luffy</h2>
+                            <p class="card-text">
+                                Monkey D. Luffy (/ˈluːfi/ LOO-fee) (Japanese: モンキー・D・ルフィ, Hepburn: Monkī Dī Rufi,
+                                [ɾɯɸiː]), also known as "Straw Hat" Luffy[n 2], is a fictional character and the main
+                                protagonist of the One Piece manga series, created by Eiichiro Oda. Luffy made his
+                                debut in chapter one as a young boy who acquires the properties of rubber after
+                                accidentally eating one of the devil fruits the Gum Gum Fruit, originally known as the
+                                Human-Human Fruit,
+                            </p>
+                            <p>
+                                Luffy is the captain of the Straw Hat Pirates, and dreamt of being a pirate since
+                                childhood from the influence of his idol Red-Haired Shanks. At the age of 17, Luffy sets
+                                sail from the East Blue Sea to the Grand Line in search of the legendary treasure,
+                                One Piece, to succeed Gol D. Roger as "King of the Pirates".
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Monkey D. Luffy card and...-->
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Itachi" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+
+                        <img src="./images/itachi.jpg" alt="Itachi Uchiha" height="390px" width="300px">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Itachi Uchiha</h2>
+                            <p class="card-text">
+                                Itachi Uchiha (Japanese: うちは イタチ，Hepburn: Uchiha Itachi) is a character in the Naruto
+                                manga and anime series created by Masashi Kishimoto. Itachi is the older brother of
+                                Sasuke Uchiha, and is responsible for killing all the members of their clan, sparing
+                                only Sasuke. He appears working as a terrorist from the organisation Akatsuki and serves
+                                as Sasuke's greatest enemy
+                            </p>
+                            <p>
+                                Itachi's character has been popular with readers of the manga,[6] and has been
+                                positively received by critics. His appearance as an antagonist has been praised by
+                                several writers, although some have considered his initial appearance to be
+                                unsurprising.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Gojo" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://rukminim1.flixcart.com/image/416/416/kuyf8nk0/poster/g/t/q/medium-satoru-gojo-gojo-gojo-satoru-jujutsu-kaisen-satoru-satoru-original-imag7ysygmvdab7q.jpeg?q=70" alt="Satoru gojo" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title"> Satoru gojo </h2>
+                            <p class="card-text">
+                              Satoru Gojo (五ご条じょう悟さとる Gojō Satoru?) is one of the main protagonists of the Jujutsu Kaisen series.
+                              He is a special grade jujutsu sorcerer and widely recognized as the strongest in the world. Satoru is the pride of the Gojo Family,
+                               the first person to inherit both the Limitless and the Six Eyes in four hundred years.
+                               He works as a teacher at the Tokyo Jujutsu High and uses his influence to protect and train strong young allies.
+                            </p>
+                            <p>
+                              Satoru is extremely confident in his abilities and reputation as a powerful sorcerer, believing himself to be invincible. His opinion of others often only go as far as his judgement of their strength, and he is quite apathetic towards anyone he deems weak. Additionally, greatly influenced by his own desire for power, he is very arrogant. He is convinced that he is the strongest in the world, which he technically is, claiming, during his fight with Toji Fushiguro, that "throughout the Heavens and earth, he alone is the honored one." This can be further exemplified when he was tasked with protecting Riko Amanai, one of the few 'weak' people he genuinely grew to show compassion for. However, any empathy of her death was soon negated by his extensive amount of pride and arrogance after perfecting his reverse cursed technique in his following battle against Toji Fushiguro.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    <!--Sample [Character Name] card end-->
+
+
+
+
+
+
+
+            <!--Sample Konan card start-->
+            <div class="card mb-3 card-bg my-4" id="Ayanokoji" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://pbs.twimg.com/media/FdFEQ9vakAE3-xC?format=jpg&name=large" alt="Ayanokoji" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Ayanokoji</h2>
+                            <p class="card-text">
+                              Kiyotaka Ayanokōji (綾あやの小こう路じ 清きよ隆たか, Ayanokōji Kiyotaka) is the main protagonist of the You-Zitsu series.
+                              He is currently a second-year student of Advanced Nurturing High School. Following the entrance exam in which he scored
+                              precisely 50 points in every subject, he was placed in D-Class. In the anime adaptation, he sits at the rear left corner
+                             of the class seat next to Suzune Horikita.
+.</p>
+                            <p>Kiyotaka is an inconspicuous and unobtrusive student, and while his grades are average (on purpose), he possesses a sagacious
+                               ability to read the emotions of people around him with pinpoint accuracy and either helps or destroys them.[1]
+
+                               He is well-versed in history as he has quoted many historical figures who are all well known for their intelligence.He tends to come up with ingenious and
+                               imaginative plans such as using the school rules so that he could obtain old test questions from an older D-Class student by paying him 15,000 points.
+                               He also used the rules and the purpose of points to bribe his teacher into stopping the expulsion of Ken Sudō.[5] In fact, it is hinted by a select few that
+                               he could have easily been placed in a higher class like A-Class if he actually applied himself.
+                            </p>
+                            <hr>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample card end-->
+
+            <!--Sample card start-->
+            <div class="card mb-3 card-bg my-4" id="Gaara" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="./images/gaara.jpg" alt="Gaara" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Gaara</h2>
+                            <p class="card-text">Gaara is an antagonist-turned-supporting character in the Naruto
+                                anime/manga series and the Boruto: Naruto Next Generations anime/manga series. He is
+                                currently the Kazekage of Sunagakure (Hidden Sand Village) in Naruto Shippuden.
+                                He was formerly a villain in the early part of Naruto, being a threat in the Chunnin
+                                Exams. He was a misanthrope due to discrimination and isolation he experienced in
+                                childhood because the Shukaku, or the One-Tailed Demon
+                                sealed inside of him. His hatred was extinguished by Naruto Uzumaki upon his defeat. As
+                                the current Kazekage, he administrates and protects his village. Gaara is also the
+                                youngest to be ever to become Kazekage. He occasionally
+                                assists Naruto or the Hidden Leaf in general. </p>
+                            <p>He can control sand and his ninja techniques are mainly sand based. He was captured by
+                                the Akatsuki and extracted Shukaku by using the Gedo Statue as result of his death until
+                                he was revived by Chiyo with the reincarnation
+                                ninjutsu in exchange for her to die. While forming the Allied Shinobi Forces, Gaara
+                                became commander of the Fourth Division as well as the commander-in-chief of the forces.
+                                After the Fourth Shinobi War, he remained as the
+                                Kazekage and adopted Shinki as a son to control his Iron Sand that was created by the
+                                Third Kazekage. He is voiced by Akira Ishida in the Japanese version of the anime, and
+                                by Liam O'Brien in the English version of the
+                                anime.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Gaara card end-->
+
+            <div class="card mb-3 card-bg my-4" id="Goku" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://i.pinimg.com/736x/a0/e1/55/a0e15594a85da1edd82942bb2ef1e061.jpg" alt="Goku" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Goku</h2>
+                            <p class="card-text">
+                                Son Goku (孫そん悟ご空くう Son Gokū, Japanese pronunciation: [sõŋgokɯː]), born Kakarot (カカロット
+                                Kakarotto, Japanese pronunciation: [kakaɾot̚to]), is a Saiyan raised on Earth and the
+                                overall main protagonist of the Dragon Ball series
+                            </p>
+                            <p>
+                                Originally was sent to Earth as an infant, Kakarot would be adopted by Grandpa Gohan who
+                                named him Son Goku.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Koro" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/korosensei.jpg" alt="korosensei" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Koro Sensei</h2>
+                            <p class="card-text">
+                                Korosensei (殺せんせー) acts as the homeroom teacher of Class 3-E of Kunugigaoka Junior High
+                                School, and the secondary protagonist and antihero of Assassination Classroom. He
+                                claimed to be responsible for creating the permanent crescent moon, and added that he
+                                planned to destroy the earth after teaching Class 3-E for a year.
+                            </p>
+                            <p>
+                                Prior to being a teacher, he was the assassin known as "The Reaper".
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Meliodas" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://i.pinimg.com/736x/8a/9d/1b/8a9d1bf56fd1423d7b38401a269eefa1.jpg" alt="Meliodas" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Meliodas</h2>
+                            <p class="card-text">
+                                Meliodas, also known as the Dragon Sin of Wrath, is the main protagonist of the
+                                manga/anime/light novel series The Seven Deadly Sins. He is the captain of the titular
+                                group of warriors, former leader of the Ten Commandments, the older brother of Zeldris,
+                                the eldest son of the Demon King, and the lover (later husband) of Elizabeth Liones.
+                            </p>
+                            <p>
+                                He is voiced by Yūki Kaji in the Japanese version of the anime, and by Bryce Papenbrook
+                                in the English dub. Both of whom also voice Eren Yeager in Attack on Titan.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Sanji" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/sanji.jpg" alt="sanji" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Sanji</h2>
+                            <p class="card-text">
+                                Vinsmoke Sanji, also known as "Black Leg" Sanji, is a fictional character in the One
+                                Piece franchise created by Eiichiro Oda. A native to the North Blue, Sanji grew up as
+                                part of the Vinsmoke family under his father Vinsmoke Judge, king of the Germa Kingdom,
+                                and mother Vinsmoke Sora.
+                            </p>
+                            <p>
+                                With the Straw Hats taking down the Beasts Pirates, they have once again caught the eye
+                                of the World Government, who wasted no time in issuing new bounties to the crew. The
+                                bounty system has caused controversies in the past as many One Piece fans tend
+                                to think that it is a representation of a character's power. This time, it is Sanji's
+                                new bounty that has sparked many debates as it is lower than Zoro and Jimbei's bounties.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample sanji card end-->
+            <!--Add your card below this line -->
+
+
+            <div class="card mb-3 card-bg my-4" id="Levi" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://i.pinimg.com/originals/4f/8b/35/4f8b353eaf4ade5936ed1654812fe08b.jpg" alt="Levi Ackerman" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Levi Ackerman</h2>
+                            <p class="card-text">
+                                Levi Ackerman is one of the most popular characters in the Attack on Titan series, who
+                                is a captain of the Special Operation Squad and in the Survey Corps, whose abilities
+                                cannot be underestimated.
+                            </p>
+                            <p>
+                                Levi is a captain who has exceptional skills on the battlefield. Not only that, he also
+                                has enough strategic intelligence to make him a formidable opponent. He has an even
+                                expression despite his great abilities, ranging from fighting to completing homework.
+                                That’s the reason why Levi is so beloved by fans of the Attack on Titan manga and anime.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+
+            <div class="card mb-3 card-bg my-4" id="Tanjiro" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/9/92/Hinokami_Kagura_%28Zenshuchuten%29.png/revision/latest?cb=20211119030921" alt="Tanjiro" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Kamado Tanjiro</h2>
+                            <p class="card-text">
+                                Tanjiro Kamado (竈門かまど 炭たん治じ郎ろう Kamado Tanjirō?) is the main protagonist of Demon Slayer:
+                                Kimetsu no Yaiba. He is a Demon Slayer in the Demon Slayer Corps, who joined to find a
+                                remedy to turn his sister, Nezuko Kamado, back into a human and to hunt down
+                                and kill demons, and later swore to defeat Muzan Kibutsuji, the King of Demons, in order
+                                to prevent others from suffering the same fate as him.
+                            </p>
+                            <p>
+                                Before he became a Demon Slayer, Tanjiro was a coal burner before his entire family was
+                                slaughtered by Muzan while his younger sister, Nezuko, was turned into a demon.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Tanjiro card end-->
+            <!--Add your card below this line -->
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Ace" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://staticc.sportskeeda.com/editor/2021/11/4c1c2-16361168281041-1920.jpg" alt="Ace" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Portgas D Ace</h2>
+                            <p class="card-text">
+                              Portgas D. Ace, born as Gol D. Ace and nicknamed "Fire Fist" Ace, was the sworn older brother of Luffy and Sabo, and the biological
+                               son of the late Pirate King, Gol D. Roger, and Portgas D. Rouge.Ace was adopted by Monkey D. Garp, as had been requested by Roger before
+                               his execution.Ace was the 2nd division commander of the Whitebeard Pirates and one-time captain of the Spade Pirates.
+                            </p>
+                            <p>
+                              Ace was first shown during the Drum Island Arc, but only got formally introduced in the Arabasta Arc, where he acts as a brief ally of the Straw Hat Pirates. He is a central figure during the whole Summit War Saga. He is also the protagonist of Ace's Great Blackbeard Search Cover Page Serial.
+
+Ace's death ultimately proved to be the catalyst leading to Luffy training for two years to become strong enough to protect his friends, paving the way for the second half of the series.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+
+
+            <div class="card mb-3 card-bg my-4" id="Eren" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/eren_yeager.png" alt="Eren Yeager" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Eren Yeager</h2>
+                            <p class="card-text">
+                                Eren Yeager (エレン・イェーガー), named Eren Jaeger in the anime Attack on Titan, is a fictional
+                                character and the protagonist of the Attack on Titan manga series created by Hajime
+                                Isayama
+                            </p>
+                            <p>
+                                In order to defeat enormous humanoid creatures known as Titans, Eren enlists in the
+                                Military and joins the Survey Corps—an elite group of soldiers who fight Titans outside
+                                the walls and also study the physiology of Titans in order to know what they are
+                                fighting.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Zenitsu" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/zenitsu.jpg" alt="Zenitsu" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Zenitsu Agatsuma</h2>
+                            <p class="card-text">
+                                Zenitsu Agatsuma (我妻 善逸) is one of two tritagonists (alongside Inosuke Hashibira) of the
+                                2016 fantasy horror anime and manga series Demon Slayer: Kimetsu no Yaiba, as well as
+                                the movie, Demon Slayer: Kimetsu no Yaiba the Movie: Mugen Train. The manga
+                                and anime proved successful, and the story was adapted into a stage play, with upcoming
+                                performances as the anime continues.
+                            </p>
+                            <p>
+                                Zenitsu is a powerful Demon Slayer and a member of the Demon Slayer Corps. Although he
+                                was originally roped into joining the Corps by his mentor Jigoro Kuwajima, Zenitsu later
+                                realizes the importance of the Demon Slayer Corps.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Temari card end-->
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Gon" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="./images/gon-hxh.jpg" alt="Gon Freecss" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Gon Freecss</h2>
+                            <p class="card-text">
+                                Gon is the main protagonist of the Hunter x Hunter. In the search for his father, Gon
+                                becomes a hunter.
+                            </p>
+                            <p>
+                                Fictional protagonist character of the manga and anime series Hunter x Hunter, created
+                                by Yoshihiro Togashi.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Gon Freecss  card end-->
+
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Escanor" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://img.webnovel.com/bookcover/20236636805342005/600/600.jpg?coverUpdateTime=1622564874148&imageMogr2/quality/40" alt="Escanor" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Escanor</h2>
+                            <p class="card-text">
+                                Escanor 「エスカノール」 is the main character of the anime Seven deadly sins.
+                                Escanoris the Lion's Sin of Pride「傲慢の罪ライオン・シン, Raion Shin」 of the Seven
+                                Deadly Sins, the former second prince of the Kingdom of Castellio, and the
+                                man known throughout the Kingdom of Liones as "The Strongest Holy Knight".
+                                His Sacred Treasure is the Divine Axe, Rhitta, and his inherent power is called
+                                Sunshine, which made him renowned for gaining immense power during the day, and
+                                gradually becoming weaker with the setting of the sun, leaving him frail and
+                                submissive at night.
+                            <p>
+                                Escanor's personality changes drastically along with his strength between day
+                                and night. At night, he is skittish, submissive and unfailingly polite. Whereas
+                                in the day he is arrogant, boastful, and domineering, he also takes it upon
+                                himself to deliver judgment to those he feels have sinned, such as those that toy
+                                with feelings. Both personalities seem to be truly him, and he remembers everything
+                                he does in either, though at night he has chastised himself for losing control during
+                                the day.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample escanor card end-->
+            <!--Add your card below this line -->
+
+
+            <div class="card mb-3 card-bg my-4" id="Vegeta" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://qph.cf2.quoracdn.net/main-qimg-fb832d644aafc7d9a4f6934c721c1eed-lq" alt="Vegeta" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Vegeta</h2>
+                            <p class="card-text">
+                                Vegeta is the deuteragonist of the Dragon Ball franchise. He starts as the main
+                                antagonist of the Saiyan Saga, but as the story progresses, he becomes one of the heroes
+                                of the Z Warriors. He is the prince of the warrior race known as the Saiyans. He is
+                                Bulma's husband and the father of Trunks and Bulla. He also has an on & off rivalry with
+                                Goku, but they are usually on good terms.
+                            </p>
+                            <p>
+
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Shanks" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://i.pinimg.com/originals/79/34/0f/79340fb00824bd88cde1fed3c8ba89f9.jpg" alt="Shanks" height="380px" width="380px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Shanks</h2>
+                            <p class="card-text">
+                              "Red-Haired" Shanks,[9] commonly known as just "Red Hair",[12] is the chief[5] of the Red Hair Pirates[2]
+                              and one of the Four Emperors that rule over the New World.[3]
+                              Sailing with the Roger Pirates since he was an infant, Shanks would begin his pirate career on their ship as an
+                              apprentice alongside Buggy, before forming his own crew following Roger's death.[4]
+                            </p>
+                            <p>
+                              Twelve years ago, while operating in the East Blue, Shanks sacrificed his left arm in order to save his young friend, Monkey D. Luffy, at sea. Notably, Shanks is the pirate who inspired Luffy to go on his own pirate journey,[13] as well as accidentally providing him with the Gomu Gomu no Mi to eat.[14] He also owned the Straw Hat that has become Luffy's signature accessory, having gifted it to the boy as part of a promise for them to meet again someday.
+
+Ever since the beginning of the series, Shanks has been an important background character, usually being shown accompanying Luffy's ever-growing reputation as a pirate. He is a late, but still vital ally during both the Marineford and Wano Country Arcs. He and his crew also have a sizable role in One Piece Film: Red, which centers on Uta, Shanks' adoptive daughter.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Overlord" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://w0.peakpx.com/wallpaper/155/667/HD-wallpaper-overlord-ainz-anime.jpg" alt="Ainz Ooal gown" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Ainz Ooal gown</h2>
+                            <p class="card-text">
+                              Ainz Ooal Gown (アインズ・ウール・ゴウン), formerly known as Momonga (モモンガ), is the main protagonist of the Overlord series. He is the guildmaster of Ainz Ooal Gown, Overlord of the Great Tomb of Nazarick, and the creator of Pandora's Actor. He is regarded as the highest of the Almighty Forty-One Supreme Beings by the NPCs of Nazarick.
+
+In the New World, he is the Sorcerer King of the Sorcerer Kingdom and the most powerful magic caster in the world. His other identity is famously known as "Momon," a dark warrior and leader of Darkness, an adamantite ranked adventurer group of that nation. He is an adamantite class adventurer and the strongest adventurer known in E-Rantel.
+                            </p>
+                            <p>
+
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Light" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://cdn.thetealmango.com/wp-content/uploads/2021/07/light-e1626271820100.jpg" alt="Yagami" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Light Yagami</h2>
+                            <p class="card-text">
+                                Light Yagami (夜神月，Yagami Raito) is the main protagonist of the Death Note series. After
+                                discovering the Death Note, he decides to use it to rid the world of criminals.
+                            </p>
+                            <p>
+                                His killings are eventually labelled by the people living in Japan as the work of
+                                "Kira."
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Law" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bdd9af75-6e48-4f4b-8e18-a733fbec52d3/derh4hf-5393d9dd-07f4-46f1-8451-c9a0327dd6ac.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JkZDlhZjc1LTZlNDgtNGY0Yi04ZTE4LWE3MzNmYmVjNTJkM1wvZGVyaDRoZi01MzkzZDlkZC0wN2Y0LTQ2ZjEtODQ1MS1jOWEwMzI3ZGQ2YWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0._7IqKeEsW8VrHMAh6YnaVXvqvqNnuY401rNL6Jiy85E" alt="Law" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Trafalgar D. Water law</h2>
+                            <p class="card-text">
+                              Trafalgar D. Water Law, more commonly known as just Trafalgar Law (トラファルガー・ロー Torafarugā Rō?) and by his epithet as the "Surgeon of Death", is a pirate from North Blue and the captain and doctor of the Heart Pirates. He is one of twelve pirates who are referred to as the "Worst Generation".He became one of the Seven Warlords of the Sea during the timeskip,but his position was revoked for allying with the Straw Hat Pirates. Law, like many other pirates, dreams of finding the One Piece, while also desiring to know the purpose of the Will of D
+                            </p>
+                            <p>
+                              Law is the only known survivor of Flevance, a town whose inhabitants suffered from a condition known as Amber Lead Syndrome. Because the disease was fatal and poorly understood, Flevance was destroyed by neighboring countries out of fear, with a young Law barely escaping alive.[7] He subsequently joined the Donquixote Pirates, where Donquixote Doflamingo intended to make Law one of his executive officers.[17] However, thanks to the efforts of Doflamingo's brother, Rosinante, Law was freed from the Donquixote Pirates' influence and became a pirate set to bring down Doflamingo's empire.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Saitama" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://static.wikia.nocookie.net/onepunchman/images/8/82/Saitama_Manga.png/revision/latest?cb=20220825051134" alt="One punch man" height="370px" width="370px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">One Punch Man</h2>
+                            <p class="card-text">
+                                One-Punch Man (Japanese: ワンパンマン，Hepburn: Wanpanman) is a Japanese superhero manga series
+                                created by One. It tells the story of Saitama, a superhero who, because he can defeat
+                                any opponent with a single punch, grows bored from a lack of challenge. One
+                                wrote the original webcomic manga version in early 2009.
+                            </p>
+                            <p>
+                                As of June 2012, the original webcomic manga surpassed 7.9 million hits. As of April
+                                2020, the manga remake had sold over 30 million copies worldwide, making it one of the
+                                best-selling manga series.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Zoro" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+
+                        <img src="https://i.pinimg.com/564x/ee/4c/34/ee4c3416234fb72fd99e5d5039c4f2a5.jpg" alt="Roronoa Zoro" height="390px" width="300px">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Roronoa Zoro</h2>
+                            <p class="card-text">
+                                Roronoa Zoro,also known as "Pirate Hunter" Zoro, is the combatant of the Straw Hat
+                                Pirates, one of their two swordsmen and one of the Nine Senior Officers of the Straw Hat
+                                Grand Fleet.
+                            </p>
+                            <p>
+                                Formerly a bounty hunter, he is the second member of Luffy's crew and the first to join
+                                it, doing so in the Romance Dawn Arc.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Sasuke" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/494d65d3-3b70-4f89-b274-76bc7fd5e470/df0o1t4-ab14ce55-de63-4254-a2ce-d63d53407a4b.png/v1/fill/w_1280,h_1795,strp/sasuke_uchiha_by_tokyosaiyan_df0o1t4-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ5NGQ2NWQzLTNiNzAtNGY4OS1iMjc0LTc2YmM3ZmQ1ZTQ3MFwvZGYwbzF0NC1hYjE0Y2U1NS1kZTYzLTQyNTQtYTJjZS1kNjNkNTM0MDdhNGIucG5nIiwiaGVpZ2h0IjoiPD0xNzk1Iiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uud2F0ZXJtYXJrIl0sIndtayI6eyJwYXRoIjoiXC93bVwvNDk0ZDY1ZDMtM2I3MC00Zjg5LWIyNzQtNzZiYzdmZDVlNDcwXC90b2t5b3NhaXlhbi00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.pxvLN6dK8cF4Tl3kSzDsISDnms8Trjkv3evPuX_0ViI" alt="Sasuke Uchiha" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Sasuke Uchiha</h2>
+                            <p class="card-text">
+                                Sasuke Uchiha is one of the last surviving members of Konohagakure's Uchiha clan. After
+                                his older brother, Itachi, slaughtered their clan, Sasuke made it his mission in life to
+                                avenge them by killing Itachi. He is added to Team 7 upon becoming a ninja
+                                and, through competition with his rival and best friend, Naruto Uzumaki, Sasuke starts
+                                developing his skills.
+                            </p>
+                            <p>
+                                Dissatisfied with his progress, he defects from Konoha so that he can acquire the
+                                strength needed to exact his revenge. His years of seeking vengeance and his actions
+                                that followed become increasingly demanding, irrational and isolates him from others,
+                                leading him to be branded as an international criminal. After learning the truth of his
+                                brother's sacrifice, later proving instrumental in ending the Fourth Shinobi World War,
+                                and being happily redeemed by Naruto, Sasuke
+                                decides to return to Konoha and dedicate his life to help protect the village and its
+                                inhabitants, becoming referred to as the "Supporting Kage".
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+
+            <!--Add your card below this line -->
+
+
+
+            <div class="card mb-3 card-bg my-4" id="Obito" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+
+                        <img src="./images/obito.jpg" alt="Uchiha Obito" height="390px" width="300px">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Uchiha Obito</h2>
+                            <p class="card-text">
+                                Obito Uchiha (うちはオビト，Uchiha Obito) was a member of Konohagakure's Uchiha clan. He was
+                                believed to have died during the Third Shinobi World War, his only surviving legacy
+                                being the Sharingan he gave to his teammate, Kakashi Hatake.
+                            </p>
+                            <p>
+                                In truth, Obito was saved from death and trained by Madara, but the events of the war
+                                left Obito disillusioned with reality, and he inherited Madara's plan to create an ideal
+                                world. Resurfacing under the names of Tobi (トビ，Tobi) and Madara Uchiha himself,
+                                Obito subtly took control of the Akatsuki, using them as a means to advance his
+                                machinations, eventually going public and starting the Fourth Shinobi World War.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Kaidou" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://static.wikia.nocookie.net/villains/images/8/8f/2dda81e2a40a146612105853fc98cd53.jpg/revision/latest?cb=20211018092917" alt="Kaidou" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Kaidou</h2>
+                            <p class="card-text">
+                                Kaidou of the Beasts, renowned as the world's "Strongest Creature", is the
+                                Governor-General of the Beasts Pirates and formerly one of the Four Emperors that ruled
+                                over the New World.He is also the father of Yamato.
+                            </p>
+                            <p>
+                                Once a promising child soldier at the service of the Vodka Kingdom decades ago, Kaidou
+                                was drafted against his will by the Marines but managed to escape and start a career in
+                                piracy. He was invited by Edward Newgate to join the legendary Rocks Pirates
+                                as an apprentice, where he met and befriended Charlotte Linlin. During the God Valley
+                                Incident when the Rocks Pirates met their downfall, Linlin provided Kaidou with the rare
+                                Mythical Zoan fruit, the Uo Uo no Mi, Model:
+                                Seiryu. He then went on to form his own crew and build it up into a powerful military
+                                force determined to challenge the World Government.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+
+            <!--Add your card below this line -->
+
+
+            <div class="card mb-3 card-bg my-4" id="Mikasa" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/mikasa.jpg" alt="Mikasa ackerman" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Mikasa Ackerman</h2>
+                            <p class="card-text">
+                                Mikasa Ackerman is one of the two deuteragonists of the series, along with Armin Arlert.
+                            </p>
+                            <p>
+                                After her parents were murdered by human traffickers, Mikasa was rescued by Eren Yeager
+                                and lived with him and his parents, Grisha and Carla, before the fall of Wall Maria. She
+                                is the last descendant of the Shogun clan that stayed on Paradis Island, thereby
+                                related to the Azumabito family, and holds significant political power in Hizuru.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+
+            <!-- Ken Kaneki card start-->
+            <div class="card mb-3 card-bg my-4" id="Ken" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="./images/ken-kaneki.jpg" alt="Naruto" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Ken Kaneki</h2>
+                            <p class="card-text">One of the most iconic anime characters of all time is none other than
+                                Tokyo Ghoul's Ken Kaneki. The one-eyed ghoul's story is truly a tragedy, but fans admire
+                                him for several reasons. Many consider Kaneki one of the best anime
+                                protagonists of all time.</p>
+
+                            <p>Ken Kaneki is a man of many layers, and just as many flaws. Kaneki's journey in Tokyo
+                                Ghoul is one of suffering, pain, and a gruesome, nightmarish reality. The series depicts
+                                a constant tug-of-war between Kaneki's ghoul side
+                                fighting against his humanity..
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Add your card below this line -->
+
+
+
+            <div class="card mb-3 card-bg my-4" id="Chizuru" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://w0.peakpx.com/wallpaper/98/618/HD-wallpaper-mizuhara-chizuru-kanojo-okarishimasu.jpg" alt="Chizuru Ichinose" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Chizuru Ichinose</h2>
+                            <p class="card-text">
+                                Chizuru Ichinose (一いちノ瀬せ ちづる, Ichinose Chizuru?), alternatively known as Chizuru
+                                Mizuhara (水みず原はら千ち鶴づる, Mizuhara Chizuru?) in her "rental girlfriend" persona, is the
+                                main female protagonist of the Kanojo, Okarishimasu series.
+                            </p>
+                            <p>
+                                She is a college student at Nerima University who is majoring in Literature and she
+                                currently lives in Room 204 of Royal Hills Nerima, just next to Kazuya Kinoshita.
+                            </p>
+                            <hr>
+                            <p>Contributed by- SoNiC-HeRe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Hashirama" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://w0.peakpx.com/wallpaper/165/581/HD-wallpaper-hashirama-senju-naruto.jpg" alt="Hashirama Senju" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Hashirama Senju</h2>
+                            <p class="card-text">
+                                Hashirama Senju (千手柱間, Senju Hashirama) was a member of the famed Senju clan. He himself
+                                was hailed as the "God of Shinobi" for his unmatched ninja prowess. Hashirama sought
+                                peace for the shinobi world, and to that end founded Konohagakure with his clan,
+                                his childhood friend and rival: Madara Uchiha and the Uchiha clan. He would later become
+                                the First Hokage (初代火影, Shodai Hokage, literally meaning: First or Founding Fire Shadow)
+                                of Konohagakure. Although he was not able
+                                to achieve peace during his lifetime, his legacy and vision for the world would continue
+                                to shape the village and the entire shinobi world even after his death.
+                            </p>
+                            <p>
+                                Hashirama was born during the Warring States Period, the eldest of Butsuma Senju's four
+                                sons. Hashirama and his brothers grew up on the battlefield waging constant war with the
+                                Senju's rivals: the Uchiha. During his infrequent downtime, Hashirama met
+                                a boy his own age named Madara.
+                            </p>
+                            <hr>
+                            <p>Contributed by- Anuj Kumar Singh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Deku" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/Izuku_Midoriya_Action_2.webp" alt="Izuku Midoriya" height="390px"
+                            width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Izuku Midoriya</h2>
+                            <p class="card-text">
+                                Izuku Midoriya (緑みどり谷や出いず久く Midoriya Izuku?), also known as Deku (デク Deku?), is the main
+                                protagonist of the My Hero Academia manga and anime series. Even though Izuku was born
+                                Quirkless, he manages to catch the attention of the legendary hero All Might,
+                                due to his innate heroism and a strong sense of justice, and has since become his close
+                                pupil, as well as a student in Class 1-A at U.A. High School. All Might passed on his
+                                transferable Quirk to Izuku, making him the ninth
+                                holder of One For All.
+                            </p>
+                            <p>
+                                Following the Paranormal Liberation War, with Tomura Shigaraki and All For One actively
+                                targeting Izuku for his Quirk, he decides to leave U.A. before finishing his first year
+                                to keep his classmates out of harm's way.[4] After encouragement from his friends,
+                                he later returns to the school and leads the heroes against the villains in one final,
+                                desperate battle to save the world.
+                            </p>
+                            <hr>
+                            <p>Contributed by- Barmendu Chakraborty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Minato" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://i.pinimg.com/736x/3c/1c/96/3c1c967aefdbe76b386dbcdd2f055cc2.jpg" alt="Minato Namikaze" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Minato Namikaze</h2>
+                            <p class="card-text">
+                                Minato Namikaze is known to be the strongest ninja who ever lived. He was born on
+                                January 25th, 12 years before the start of the series. He was hailed as a hero for his
+                                bravery and quick thinking during a conflict with an unknown, powerful force. On October
+                                10th, Minato Namikaze died while defending the village from this powerful attack, but
+                                not before sealing the beast inside his newborn son Naruto.
+                            </p>
+                            <p>
+                                Born in Konoha on October 10th. His birth name is Naruto Uzumaki Namikaze. Naruto’s
+                                father and Fourth Hokage of Konohagakure no Sato (Hidden Leaf Village). He became Hokage
+                                at age 25 and died twelve years later on October 10th, when he saved Konoha from
+                                Kurama by giving his life to seal it within Naruto.
+
+                            </p>
+                            <hr>
+                            <p>Contributed by- Abhay Kumar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Guy" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://w0.peakpx.com/wallpaper/627/72/HD-wallpaper-might-guy-anime-might-guy-naruto-thumbnail.jpg" alt="Might Guy" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Might Guy</h2>
+                            <p class="card-text">
+                                Might Guy (マイト・ガイ, Maito Gai) is a jōnin of Konohagakure. A master of taijutsu, Guy
+                                leads and passes his wisdom onto the members of Team Guy.
+                            </p>
+                            <p>
+                                Because Guy had little talent in ninjutsu and genjutsu as a child, he dedicated himself
+                                to perfecting his taijutsu; his father, Duy, called this early knowledge of his own
+                                strengths and weaknesses a "virtue" most shinobi did not have
+                            </p>
+                            <hr>
+                            <p>Contributed by- Harshit Sharma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Kakashi" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://i.pinimg.com/736x/77/9e/5e/779e5e5ffbec6d9c0254001656c12f46.jpg" alt="Kakashi Hatake" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Kakashi Hatake</h2>
+                            <p class="card-text">
+                                Kakashi Hatake is a shinobi of Konohagakure's Hatake clan. Famed as Kakashi of the
+                                Sharingan , he is one of Konoha's most talented ninja, regularly looked to for advice
+                                and leadership despite his personal dislike of responsibility. To his students on
+                                Team 7, Kakashi emphasises the importance of teamwork; he himself received this lesson,
+                                along with the Sharingan, from his childhood friend, Obito Uchiha. After the Fourth
+                                Shinobi World War, Kakashi becomes Konoha's Sixth
+                                Hokage (六代目火影, Rokudaime Hokage, literally meaning: Sixth Fire Shadow).
+                            </p>
+                            <p>
+                                Kakashi became a Jonin and was sent on a mission along with Obito and Rin, They where to
+                                destroy a bridge that was being used by enemy forces to enter Konoha and therefore help
+                                in the third great shinobi war effort. But disaster struck when Rin was taken
+                                by two Iwagakure Jonin. Obito wanted to rescue his teammate; But Kakashi said that the
+                                mission came first. Kakashi found himself in the same situation as his father had been
+                                in the past and did not want to make the mistakes
+                                that his father had. Obito disagreed and left Kakashi not before telling him that what
+                                his father did in the past made him a hero not a disgrace.
+                            </p>
+                            <hr>
+                            <p>Contributed by- Harsh Vardhan Singh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+
+
+            <!--Add your card below this line -->
+
+            <!-- </div> -->
+
+
+
+            <div class="card mb-3 card-bg my-4" id="Pain"  style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://image.winudf.com/v2/image/Y29tLmFuZHJvbW8uZGV2NjkxOTM5LmFwcDc4MTU1OF9zY3JlZW5fMF8xNTI0MDI1MDQyXzA0OA/screen-0.jpg?fakeurl=1&type=.webp" alt="[Pain]" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Nagato Uzumaki</h2>
+                            <p class="card-text">
+                                Nagato (長門, Nagato) was a shinobi of Amegakure and descendant of the Uzumaki clan.
+                                Forming Akatsuki alongside his friends (and fellow war orphans) Yahiko and Konan, Nagato
+                                dreamed of bringing peace to the violent shinobi world. However, following Yahiko's
+                                death, Nagato adopted the alias of Pain (ペイン, Pein) and, along with Konan, began leading
+                                a new Akatsuki — one that would force the world into peace using any means necessary.
+                            </p>
+                            <p>
+                                Nagato lived with his parents: Fusō and Ise on the outskirts of Amegakure. When he was
+                                very young, Madara Uchiha secretly transplanted his Rinnegan into Nagato without his or
+                                his parents' knowledge.[8] Sometime later, during the Second Shinobi World War,
+                                Nagato and his parents took shelter in their home to avoid the fighting going on around
+                                them.
+                            </p>
+                            <hr>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Food" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/79d52752-3ec1-4740-b0a1-218a94a7ce2f/ddnk0iu-ce814153-c67c-47b8-abb9-24c480d92eba.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzc5ZDUyNzUyLTNlYzEtNDc0MC1iMGExLTIxOGE5NGE3Y2UyZlwvZGRuazBpdS1jZTgxNDE1My1jNjdjLTQ3YjgtYWJiOS0yNGM0ODBkOTJlYmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WhlliRKuRyqBAkkPNsYblxNsm140OMXchNTxuxP6pFE" alt="Soma" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Sōma Yukihira</h2>
+                            <p class="card-text">
+                                Sōma Yukihira (幸ゆき平ひら 創そう真ま, Yukihira Sōma?) is the main protagonist of Shokugeki no
+                                Soma. He is the son of Jōichirō Yukihira and Tamako Yukihira, the proud owner of
+                                Restaurant Yukihira. He is a 92nd Tōtsuki Generation alumnus and a former resident of
+                                Polar Star Dormitory. He is also a previous 1st seat of the Elite Ten Council
+                            </p>
+                            <p>
+
+                                Sōma's main outfit is his Restaurant Yukihira cooking uniform, consisting of a black
+                                shirt with the restaurant's logo on the back and left chest area of his shirt. Whenever
+                                he cooks, he wears a white apron over his waist. While at Tōtsuki, Sōma wears
+                                a black coat summer school uniform over his Yukihira cooking uniform. Sōma also ties his
+                                trademark white headband around his forehead whenever he cooks. If he is not cooking or
+                                bathing, he wears his headband around his
+                                left wrist. Compared to his fellow Tōtsuki students, Sōma dresses very casually; in his
+                                free time, he sports a hanten jacket with a simple white shirt beneath it and a striped
+                                track pants at his places of residence. Sōma
+                                states that dressing in his hanten calms him down.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Sukuna" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://qph.cf2.quoracdn.net/main-qimg-82f5f8d7fe6deed1e881a05106b1c2f8-lq" alt="Sukuna" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Sukuna</h2>
+                            <p class="card-text">
+                                According to a legend, during the golden age of jujutsu over 1,000 years ago, Sukuna was
+                                an Imaginary Demon, though in truth was a human sorcerer, and other sorcerers gave their
+                                all to defeat him. After his death, he became a cursed spirit, and his curse
+                                was too strong for his body to be fully destroyed.
+                            </p>
+                            <p>
+                                Henceforth, his remains of 20 indestructible fingers, preserved in grave wax, traversed
+                                the ages as cursed objects, ever growing in power. In the present, Sukuna has been
+                                incarnated into Yuji Itadori due to the latter eating one of his cursed fingers,
+                                which contain his fragmented power.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Boruto" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://c4.wallpaperflare.com/wallpaper/107/327/700/anime-boruto-boruto-uzumaki-wallpaper-preview.jpg" alt="tengen uzui" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Boruto Uzumaki</h2>
+                            <p class="card-text">
+                                Boruto Uzumaki (うずまきボルト, Uzumaki Boruto) is a shinobi from Konohagakure's Uzumaki clan
+                                and a direct descendant of the Hyūga clan through his mother. While initially resentful
+                                of his father and his absence since becoming Hokage, Boruto eventually comes
+                                to respect his father and duties. Regardless, he vows to instead become a shinobi like
+                                his mentor.
+                            </p>
+                            <p>
+                                Boruto is the first child of Naruto and Hinata Uzumaki, receiving a younger sister,
+                                Himawari, two years later. As his parents continued to stay close to their childhood
+                                friends over the years, Boruto ultimately came to know the various parents' respective
+                                kids well.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+            <div class="card mb-3 card-bg my-4" id="Asta" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://i.pinimg.com/originals/ec/da/20/ecda2009a510d2dea93f6431034c8c73.jpg" alt="Asta" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Asta</h2>
+                            <p class="card-text">Asta (Japanese: アスタ, Hepburn: Asuta) is a fictional character and the
+                                main protagonist of the manga series Black Clover created by Yūki Tabata. He is
+                                cheerful, hyperactive, strong willed and muscle-building addict from Hage
+                                village
+                            </p>
+                            <p>A peasant orphan who was left at a church, he aspires to become the next Wizard King. He
+                                has no magical power, but overcame this through intense physical training which allow
+                                him to wield anti-magic swords from a five-leaf
+                                clover grimoire in which a devil resides. He then becomes a Magic Knight, joining the
+                                Black Bulls squad in hopes of achieving his dream.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+            <div class="card mb-3 card-bg my-4" id="Rimuru" style="max-width:100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://static.zerochan.net/Rimuru.Tempest.full.3277859.png" alt="Rimuru Tempest" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Rimuru_Tempest</h2>
+                            <p class="card-text">
+                          Rimuru Tempest (リムル゠テンペスト Rimuru Tenpesuto?) is the main protagonist of That Time I Got Reincarnated as a Slime and the reincarnation of Satoru Mikami.
+
+                            </p>
+                            <p>
+                                Rimuru is an eccentric and childish person by nature but this shouldn't be mistaken for immaturity and naivety.
+                                Underneath the surface Rimuru is constantly analyzing, planning, and weighing the pros and cons of his actions,
+                                 taking the smart move in the long-term over more rash and emotional decisions. In stark contrast to this normally composed and
+                                  calculative demeanor, he's absolutely ruthless when it comes to handling people who have angered him. He'll go as far as brutal
+                                   torture and murder without batting an eye if he can get away with it and uses more subtle methods like intimidation and blackmail
+                                    when he can't.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Anos" style="max-width:100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/Anos_Voldigoad.jpg" alt="Anos_Voldigoad" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Anos_Voldigoad</h2>
+                            <p class="card-text">
+                                Anos Voldigoad (アノス・ヴォルディゴード Anosu Vorudigōdo?) is a powerful demon who was infamously
+                                known during the Mythical Age as the Demon King of Tyranny (暴虐の魔王 Bōgyaku no Maō?), for
+                                his immense power and cruelty towards his enemies. After giving up his life
+                                to separate the world into four, he reincarnated into the Magical Age and began
+                                attending the Demon King Academy, only to be branded as a misfit. He is the titular
+                                protagonist of the The Misfit of Demon King Academy.
+
+                            </p>
+                            <p>
+                                Anos is the reincarnation of the man who was feared as the Demon King of Tyranny two
+                                thousand years ago. He is resolute, stalwart, and invincible. His absolute power instils
+                                a veritable self-confidence that is only surpassed by his ego. Because of his
+                                overwhelming prowess, Anos possesses an easygoing attitude and an unrivaled sense of
+                                perseverance when facing any challenge that may come his way. Despite being called the
+                                Demon King of Tyranny, Anos has a definitive moral
+                                compass and generally has a kind and caring outlook. He takes a great interest in the
+                                well-being of not only his family, but also his friends and followers, and is quick to
+                                reward them for their loyalty. He is willing to
+                                go through great lengths to assist in their development, in order for them to reach
+                                their full potential. Other people may see him as cruel, but his personal creed is not
+                                to kill people needlessly. Even if he would never
+                                admit it, Anos is very protective of his fellow friends and followers. While Anos is not
+                                inherently evil, his chaotic and sometimes ruthless methods when dealing with his
+                                enemies, earned him his title. While he originally
+                                never proclaimed himself as the Demon King, he has openly embraced it as the rest of the
+                                world views him as such. Those who oppose him, fear his power, and are threatened by the
+                                mere fact that a single man possesses such
+                                power. The legends of his gaze striking fear into those who appear before him are not
+                                just a rumor either. Just using his Magic Eyes to control others' actions is enough for
+                                some to go mentally insane.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 card-bg my-4" id="Haikyu" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="./images/shoyo_hinata.jpg" alt="Shoyo Hinata" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Shoyo Hinata</h2>
+                            <p class="card-text">
+                                Shōyō Hinata is the main protagonist of the Haikyū!! series by Haruichi Furudate. Shoyo
+                                is a high school student who wishes to become like the "Small Giant," a former Karasuno
+                                High School student and volleyball club member. To achieve his dream, he decides
+                                to join Karasuno, but to join the volleyball team he and Tobio Kageyama, his old
+                                opponent in a volleyball match, must overcome their rivalry and work together. For the
+                                majority of the series, Hinata was a first-year student
+                                at Karasuno High and one of the volleyball team's middle blockers. Hinata has a cheerful
+                                and energetic personality. Hinata has an unusually high ability to jump. Since he was
+                                young, Hinata trained his legs to compensate
+                                for his lack of height.
+                            </p>
+                            <p>
+                                He is easily excited and can be quite loud. For the most part, Hinata is very
+                                simple-minded which sometimes causes him to make rash decisions. However, he is also
+                                shown to be quite observant. He is capable of reading social cues and can be incredibly
+                                empathetic toward others' struggles. As such, he often says just what others need to
+                                hear to push themselves in the right direction. His friendly and straightforward
+                                personality allows him to befriend even the quietest
+                                of people effortlessly, such as Kenma from Nekoma High and Aone from Date Tech High.
+                                Despite his easy-going personality, Hinata is extremely competitive, especially when it
+                                comes to volleyball. Hinata has a very big fortitude
+                                to win and thus, doesn't give up easily during a match no matter if it's a practice
+                                match or a real match. Hinata can also exhibit a very scary and intimidating face when
+                                people underestimate him.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Anos_Voldigoad end-->
+
+
+
+            <!--Add your card below this line -->
+
+            <div class="card mb-3 card-bg my-4" id="Yamato" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://www.whatspaper.com/wp-content/uploads/2021/10/yamato-one-piece-wallpaper-whatspaper-4.jpg" alt="yamato" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Yamato</h2>
+                            <p class="card-text">
+                                Yamato is the son of Kaidou. Born as Kaidou's daughter and groomed from a young age to
+                                be his heir, Yamato instead developed a profound admiration for the samurai Kozuki Oden.
+                                After his death, Yamato chose to become Oden, impersonating him and adopting
+                                his mannerisms. As a result of this desire to become Oden, Yamato decided to become a
+                                man and identify as Kaidou's son, and Kaidou and his crew refer to him as such as
+                                well.
+                            </p>
+                            <p>
+                                amato greatly admires the legendary samurai Kozuki Oden to the point of even proclaiming
+                                to carry his identity. Yamato has self-identified as Oden on multiple occasions and has
+                                even emulated his gender, proclaiming to be the son of Kaidou due to Oden
+                                being a man.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample Yamato card end-->
+
+
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Yuji" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://c4.wallpaperflare.com/wallpaper/599/374/514/jujutsu-kaisen-yuji-itadori-sukuna-anime-anime-boys-hd-wallpaper-preview.jpg" alt="Yuji Itadori" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Yuji Itadori</h2>
+                            <p class="card-text">
+                                Yuji Itadori (虎いた杖どり悠ゆう仁じ Itadori Yūji?) is the main protagonist of the Jujutsu Kaisen
+                                series. He is the son of Jin Itadori and grandson of Wasuke Itadori who was living a
+                                normal life until he encountered Megumi and ate one of Sukuna's fingers. After
+                                becoming Sukuna's vessel, Yuji began attending Tokyo Jujutsu High alongside Megumi and
+                                Nobara as first-year students
+                            </p>
+                            <p>
+                                Yuji is one of his school's most powerful and talented students, Satoru Gojo placing him
+                                on the same level of potential as Yuta Okkotsu and Kinji Hakari as one of the three
+                                students who he believes will surpass his strength. Despite having no connections
+                                to the jujutsu world before a few months prior to the Shibuya Incident, Yuji is able to
+                                contend with and defeat Grade 1 and Special Grade curses. Yuji was gifted with
+                                superhuman physical abilities which he masterfully combines
+                                with his cursed energy. Yuji is also able to contain Sukuna with no ill effects. This
+                                enables him to harm Mahito, whose control over the shape of his soul otherwise renders
+                                him resistant to injury.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+
+
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Roy" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://images5.alphacoders.com/947/947162.jpg" alt="Roy Mustang" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Roy Mustang</h2>
+                            <p class="card-text">
+                                Roy Mustang (ロイ・マスタング Roi Masutangu?), also known as the Flame Alchemist (焔の錬金術師 Honō no
+                                Renkinjutsushi?), is the tritagonist of the Fullmetal Alchemist series.
+                                He is a State Alchemist and officer in the Amestrian State Military. A hero of the
+                                Ishval Civil War and Edward Elric’s superior officer, Colonel Mustang is a remarkably
+                                capable commander who plans to become the next Führer of Amestris.
+                            </p>
+                            <p>
+                                Despite his ambition, as the series continues, Mustang decides to overthrow the State
+                                Military after his best friend, Maes Hughes, is killed by the homunculi, who are
+                                controlling the Military.
+                                Besides his appearances in the manga and the anime, Mustang has also been featured in
+                                other media for the series, such as Makoto Inoue's light novels, the original video
+                                animations and the Fullmetal Alchemist video games.
+                                Since his introduction in the manga series, Mustang has been well received by readers,
+                                appearing second in each popularity poll for the series. His character has also received
+                                praise in various outside media, with many of them focusing on his character and
+                                development in both manga and anime.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [Character Name] card end-->
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Spy" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://aniyuki.com/wp-content/uploads/2022/06/aniyuki-loid-forger-1.jpg" alt="Loid Forger" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Loid Forger</h2>
+                            <p class="card-text">
+                                Loid Forger is the main protagonist of the <a
+                                    href="https://spy-x-family.fandom.com/wiki/SPY_x_FAMILY_(manga)">SPY x FAMILY</a>
+                                series.
+                                He has discarded everything about his past to work for his country as an undercover spy
+                                who acts under the codename
+                                "Twilight".
+                            </p>
+                            <p>
+                                Loid is a handsome man with short blond hair, blue eyes, and light skin. His hair is
+                                often slicked back to varying degrees, depending on the occasion. He is quite tall, has
+                                an athletic build and big ears. His exact age is unknown, although his history and
+                                appearance points to him being in his late twenties or early thirties.
+
+                                He is often seen wearing a light green three-piece suit with a red tie when outside. He
+                                wears a lapel pin on his left lapel, in the shape of a dagger with the symbol of WISE.
+
+                                When at home, he wears a plain t-shirt with long black pants.
+
+                                As a psychiatrist, he wears a lab coat over his shirt and tie.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Bleach" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://m.media-amazon.com/images/I/6172sX-TInL._AC_SL1024_.jpg"
+                            height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Ichigo Kurosaki</h2>
+                            <p class="card-text">
+                                Ichigo Kurosaki (Japanese: 黒崎 一護, Hepburn: Kurosaki Ichigo) is a fictional character in
+                                the Bleach manga series and its adaptations created by Tite Kubo. He is the main
+                                protagonist of the series, who receives Soul Reaper powers after meeting Rukia Kuchiki,
+                                a Soul Reaper assigned to patrol around the fictional city of Karakura Town.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Sample [character name] card end-->
+
+
+
+
+
+
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Fire" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here by the complete name (with extension) of the image you uploaded -->
+                        <img src="https://w0.peakpx.com/wallpaper/554/825/HD-wallpaper-rengoku-demon-slayer.jpg" alt="[Kyōjurō Rengoku]" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Kyōjurō Rengoku</h2>
+                            <p class="card-text">
+                                Kyojuro Rengoku was a major supporting character of Demon Slayer: Kimetsu no Yaiba and a
+                                major character in the Mugen Train Arc. He was a Demon Slayer of the Demon Slayer Corps
+                                and the late Flame Hashira.
+                            </p>
+                            <p>
+                                Kyojuro was a young adult of tall stature and muscular-athletic build. He is known to be
+                                charismatic and has an air of great optimism, having an enthusiastic smile plastered on
+                                his face nearly all the time. He had long bright yellow hair with red streaks akin to
+                                flames along with two shoulder-length bangs and two chin-length bangs on the side of his
+                                head, black forked eyebrows, and golden eyes that fade to red with white pupils.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Add your card below this line -->
+            <div class="card mb-3 card-bg my-4" id="Natsu" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <!-- Replace image_name_here with the complete name (with extension) of the image you uploaded -->
+                        <img src="https://fsb.zobj.net/crop.php?r=D-iHMYUhqEiOua8ZGFpaHbqfZAt6IoDKLTY4JgJiwYUDnhE_sQAXBwAIzVUd3frjRKhZ1fJUXFG8Ftm568kKY5dIwHzHEcXxwTyRdSnA7SaDhELNXXjtVnvVL1q71KqbBBshNHi1pEtUh1wcfXZZnCbaLu0kFsAz7ht0QhJLRFgtOIXkHr6m7jvmqYIxB80sPFAkNXc3FnuY3Fqf" alt="Natsu Dragneel" height="390px" width="300px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="card-title">Natsu Dragneel</h2>
+                            <p class="card-text">
+                                Natsu Dragneel is the deuteragonist of the popular shonen manga/anime franchise, Fairy
+                                Tail. He is a Fire Dragon Slayer and member of the Fairy Tail Guild.
+                            </p>
+                            <p>
+                                He is the adoptive son of the king of the fire dragons Igneel and later revealed to be
+                                the younger brother of Zeref Dragneel and the illegitimate paternal uncle of August,
+                                having originally died just over 400 years ago before being brought back to life by his
+                                older brother as the most powerful Demon to ever exist called E.N.D., or Etherious Natsu
+                                Dragneel. He was also among the five Dragon-trained Dragon Slayers sent to the future
+                                from around the same time as his rebirth, having an additional purpose in the defeat of
+                                Acnologia , his arch-nemesis for killing Igneel.
+                            </p>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Add your card below this line -->
+
+    </main>
+    <!-- <footer> -->
+
+    <div class="pagination" style="margin-bottom: 20px;">
+        <li class="page-item previous-page"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+    </div>
+
+    <!-- Do not alter the code below this line unless you want to improve the website -->
+
+    <!-- Footer ANd Contact Section  -->
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <a href="./index.html"><img src="https://hosting.photobucket.com/images/i/Souravdebnath19/_AST1836(1)-modified.png?width=320&height=320&fit=bounds" alt="logo"></a>
+                        <p>Above is The List Of Some of my favourite Anime Character which i loved the most. </p>
+                        <div class="hr"></div>
+                        <h6>Developer-SOURAV DEBNATH</h6>
+                        <div class="contact-social">
+                            <ul>
+                                <li><a class="hover-target" href="https://www.facebook.com/profile.php?id=100016018567827"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target"
+                                        href="https://www.linkedin.com/in/sourav-debnath-kgt19/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BjXj4UdutRLGGgcNduZ0J0A%3D%3D"><i
+                                            class="fa fa-linkedin"></i></a></li>
+                                <li><a class="hover-target" href="https://github.com/Souravdebnath19"><i
+                                            class="fa fa-github"></i></a></li>
+                                <li><a class="hover-target" href="https://www.instagram.com/___sourav__._/"><i class="	fa fa-instagram"></i></a></li>
+                                <li><a class="hover-target" href="https://mail.google.com/mail/u/0/#inbox"><i class="fa fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+        </script>
+    <script src="searchbar.js"></script>
+    <script src="searchresults.js"></script>
+    <script src="scrollEffect.js"></script>
+    <script src="/indexdarkmode.js"></script>
+    <script src="scrolltotop.js"></script>
+    <script src="pagination.js"></script>
+    <!-- <script src="swipper.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+        /* ------- Scroll To Top Button -------*/
+
+        const toTop = document.querySelector(".to-top");
+        const toBottom = document.querySelector(".bottom");
+        if (document.documentElement.scrollTop < document.documentElement.scrollHeight - 1000) {
+            toBottom.classList.add("active");
+        } else {
+            toBottom.classList.remove("active");
+        }
+        window.addEventListener("scroll", () => {
+
+            if (window.pageYOffset > 400) {
+                toTop.classList.add("active");
+            } else {
+                toTop.classList.remove("active");
+            }
+            if (document.documentElement.scrollTop < document.documentElement.scrollHeight - 1000) {
+                toBottom.classList.add("active");
+            } else {
+                toBottom.classList.remove("active");
+            }
+
+        });
+
+        function scrollToBottom() {
+            console.log(document.documentElement.scrollTop, document.documentElement.scrollHeight);
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behaviour: "smooth"
+            })
+        }
+        toBottom.addEventListener("click", scrollToBottom);
+    </script>
+
+
+    <script>
+        function darkMode() {
+            var element = document.body;
+
+            //Added bootstrap navbar class for dark and light mode
+            let navBackground = document.getElementById("navBackground");
+            let toggle = document.querySelector(".navbar-toggler");
+            const btn = document.getElementById('btn');
+            let themeIcon = document.getElementById("themeIcon");
+
+            if (btn.classList.contains("btn-outline-dark")) {
+                btn.classList.remove("btn-outline-dark");
+                btn.classList.add("btn-outline-light");
+                navBackground.classList.remove("bg-light")
+                navBackground.classList.add("bg-dark")
+                themeIcon.classList.remove("bi-brightness-high")
+                themeIcon.classList.add("bi-moon-stars")
+                toggle.classList.add("custom-toggler")
+            } else {
+                btn.classList.add("btn-outline-dark");
+                navBackground.classList.add("bg-light")
+                navBackground.classList.remove("bg-dark")
+                themeIcon.classList.remove("bi-moon-stars")
+                themeIcon.classList.add("bi-brightness-high")
+                toggle.classList.remove("custom-toggler")
+            }
+
+            element.classList.toggle("dark-mode");
+        }
+
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 'auto',
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            centeredSlides: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+
+</body>
